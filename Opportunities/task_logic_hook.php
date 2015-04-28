@@ -12,10 +12,12 @@ Class TaskClass{
 			$contBean = BeanFactory::getBean('Contacts', $row['contact_id']);
 			$contPhone = $contBean->phone_mobile;
 			$contEmail = $contBean->email1;
+			$contOfficePhone = $contBean->phone_work;
 			//Update Task record
 			$taskBean = BeanFactory::getBean('Tasks', $params['related_id']);
 			$taskBean->phone_info_c = $contPhone;
 			$taskBean->email_info_c = $contEmail;
+			$taskBean->office_phone_info_c = $contOfficePhone;
 			$taskBean->save();
 		}//End If			
 	}//End Func
